@@ -25,7 +25,11 @@ notesController.formularioEditarNota = async (req,res) => {
 }
 
 notesController.editarNota = async (req,res) => {
-    res.json('Editandola');
+    const { title, description } = req.body;
+    const id = req.params.id;
+    await Note.findByIdAndUpdate(id, {title: title, description: description});
+    res.redirect('/notes');
+    
 }
 
 notesController.eliminarNota = async (req,res) => {
