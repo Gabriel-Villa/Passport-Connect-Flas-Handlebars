@@ -1,8 +1,11 @@
-const express = require('express'),
-    path = require('path'),
-    morgan = require('morgan');
+require('dotenv').config();
+
+const express = require('express');
+const path = require('path');
+const morgan = require('morgan');
 
 const app = express();
+require('./database');
 
 //Settings
 app.set('port', process.env.PORT || 4000);
